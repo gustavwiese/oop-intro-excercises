@@ -31,7 +31,7 @@ function displayMembers(members) {
       <td>${member.name}</td>
       <td>${member.active}</td>
       <td>${member.birthday}</td>
-      <td>${member.age}</td>
+      <td>${member.getAge()}</td>
       <td>${member.junior}</td>
       <td>${member.senior}</td>
       <td>${member.email}</td>
@@ -54,6 +54,14 @@ function constructMember(memberdata) {
     gender: memberdata.gender,
     image: memberdata.image,
     hasPayed: memberdata.hasPayed,
+    getAge: () => {
+      const today = new Date();
+      const birthday = rawBirthDate;
+      let age = today.getFullYear() - birthday.getFullYear();
+      return age;
+    },
+    isJunior: () => {},
+    isSenior: () => {},
   };
 
   return MemberObject;
