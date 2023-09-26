@@ -16,7 +16,7 @@ async function fetchMembers() {
 async function buildMembersList() {
   const originalObjects = await fetchMembers();
 
-  for(const orgobj of originalObjects) {
+  for (const orgobj of originalObjects) {
     const memberObj = constructMember(orgobj);
     members.push(memberObj);
   }
@@ -25,8 +25,8 @@ async function buildMembersList() {
 function displayMembers(members) {
   const table = document.querySelector("table#members tbody");
   table.innerHTML = "";
-  for(const member of members) {
-    const html = /*html*/`
+  for (const member of members) {
+    const html = /*html*/ `
     <tr>
       <td>${member.name}</td>
       <td>${member.active}</td>
@@ -50,9 +50,8 @@ function constructMember(memberdata) {
     email: memberdata.email,
     gender: memberdata.gender,
     image: memberdata.image,
-    hasPayed: memberdata.hasPayed
-  }
+    hasPayed: memberdata.hasPayed,
+  };
 
   return MemberObject;
 }
-
