@@ -42,11 +42,14 @@ function displayMembers(members) {
 }
 
 function constructMember(memberdata) {
+  const rawBirthDate = new Date(memberdata.dateOfBirth);
+  const options = { day: "numeric", month: "short", year: "numeric" };
+
   const MemberObject = {
     name: memberdata.firstName,
     active: memberdata.isActiveMember,
     competitive: memberdata.isCompetitive,
-    birthday: new Date(memberdata.dateOfBirth),
+    birthday: rawBirthDate.toLocaleDateString("da-DK", options),
     email: memberdata.email,
     gender: memberdata.gender,
     image: memberdata.image,
