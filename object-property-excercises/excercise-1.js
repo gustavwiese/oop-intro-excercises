@@ -47,5 +47,5 @@ function constructNameParts(fullName) {
 
 const gustav = constructNameParts("Gustav Wiese Pedersen");
 gustav.age = 24;
-Object.defineProperty(gustav, "_age", {value:25});
+Object.defineProperty(gustav, "_age", { value: 25 });
 console.log(gustav);
