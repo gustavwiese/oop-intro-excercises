@@ -24,9 +24,6 @@ async function buildResultsList() {
 
 function displayResults(results) {
   const table = document.querySelector("table#results tbody");
-  results.sort((a, b) => {
-    return 
-  });
   table.innerHTML = "";
   for (const result of results) {
     const html = /*html*/ `
