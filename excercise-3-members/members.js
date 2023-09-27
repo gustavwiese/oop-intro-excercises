@@ -32,8 +32,7 @@ function displayMembers(members) {
       <td>${member.active}</td>
       <td>${member.birthday}</td>
       <td>${member.getAge()}</td>
-      <td>${member.junior}</td>
-      <td>${member.senior}</td>
+      <td>${member.getJuniorSeniorStatus()}</td>
       <td>${member.email}</td>
     </tr>`;
 
@@ -60,8 +59,21 @@ function constructMember(memberdata) {
       let age = today.getFullYear() - birthday.getFullYear();
       return age;
     },
-    isJunior: () => {},
-    isSenior: () => {},
+    isJunior: function () {
+      const age = this.getAge();
+      return age < 18;
+    },
+    isSenior: function () {
+      const age = this.getAge();
+      return age >= 18;
+    },
+    getJuniorSeniorStatus: function () {
+      if (this.isJunior()) {
+        return "Junior";
+      } else {
+        return "Senior";
+      }
+    },
   };
 
   return MemberObject;
